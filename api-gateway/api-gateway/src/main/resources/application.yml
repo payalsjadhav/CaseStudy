@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: API-GATEWAY-SERVICE
+
+
+
+
+zuul:
+   routes:
+     user-service:
+       path: /user-service/**
+       serviceId: user-service
+
+     package-service:
+       path: /package-service/**
+       serviceId: package-service
+
+     promocode-service:
+       path: /promo-service/**
+       uri: lb://promocode-service
+
+     location-service:
+       path: /location/**
+       serviceId: location-service
+
+     washer-service:
+       path: /washer-service/**
+       serviceId: washer-service
+
+server:
+  port: 9000
+
